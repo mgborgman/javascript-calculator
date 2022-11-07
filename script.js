@@ -1,3 +1,5 @@
+let displayValue = 0;
+
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -32,3 +34,31 @@ function operate(operator, num1, num2) {
             return;
     } 
 }
+
+let calculatorNumberButtons = document.querySelectorAll('#calculator-container .number');
+let calculatorOperatorButtons = document.querySelectorAll('#calculator-container .operator');
+let calculatorDisplay = document.getElementById('calculator-display');
+let operand1;
+let operand2;
+let operator;
+
+for(const numberButton of calculatorNumberButtons) {
+    numberButton.addEventListener("click", function() {
+        displayValue = this.value;
+        calculatorDisplay.innerHTML += displayValue;
+    });
+}
+
+for(const operatorButton of calculatorOperatorButtons) {
+    operatorButton.addEventListener("click", function() {
+        operand1 = displayValue;
+        operator = this.value;
+    });
+}
+
+
+
+
+
+
+
